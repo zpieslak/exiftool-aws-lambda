@@ -1,0 +1,23 @@
+FROM public.ecr.aws/lambda/python:3.9
+
+# Setup defined in .docker.env
+ARG BIN_PATH
+ARG LAYER_PATH
+
+# Install build tools
+RUN yum install -y unzip
+
+# Install test dependencies
+COPY requirements_test.txt ./
+RUN pip install -r requirements_test.txt
+
+# Install layers
+COPY layer/ $LAYER_PATH
+RUN unzip $LAYER_PATH/exiftool.zip -d $BIN_PATH
+
+COPY . ./
+
+# Fix permissions
+RUN chmod +x entrypoint.test.sh
+
+ENTRYPOINT ["./entrypoint.test.sh"]

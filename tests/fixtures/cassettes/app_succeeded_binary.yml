@@ -1,0 +1,141 @@
+interactions:
+- request:
+    body: null
+    headers:
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS4yMy43IFB5dGhvbi8zLjEwLjUgTGludXgvNS4xOC41LWFyY2gxLTEgQm90b2NvcmUv
+        MS4yNi43
+      X-Amz-Content-SHA256:
+      - !!binary |
+        ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3
+        ODUyYjg1NQ==
+      X-Amz-Date:
+      - !!binary |
+        MjAyMjA2MjRUMTQyNjU2Wg==
+      amz-sdk-invocation-id:
+      - REDACTED
+      amz-sdk-request:
+      - REDACTED
+    method: HEAD
+    uri: https://test-bucket.s3.us-east-2.amazonaws.com/test/test
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '2048'
+      Content-Type:
+      - binary/octet-stream
+      Date:
+      - Fri, 24 Jun 2022 14:26:58 GMT
+      ETag:
+      - '"c188d940b7d60523364501c6a1b55e57"'
+      Last-Modified:
+      - Fri, 24 Jun 2022 14:25:28 GMT
+      Server:
+      - AmazonS3
+      x-amz-expiration:
+      - expiry-date="Mon, 25 Jul 2022 00:00:00 GMT", rule-id="Delete all files"
+      x-amz-id-2:
+      - REDACTED
+      x-amz-request-id:
+      - REDACTED
+      x-amz-server-side-encryption:
+      - AES256
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Range:
+      - !!binary |
+        Ynl0ZXM9MC0yMDQ3
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS4yMy43IFB5dGhvbi8zLjEwLjUgTGludXgvNS4xOC41LWFyY2gxLTEgQm90b2NvcmUv
+        MS4yNi43
+      X-Amz-Content-SHA256:
+      - !!binary |
+        ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3
+        ODUyYjg1NQ==
+      X-Amz-Date:
+      - !!binary |
+        MjAyMjA2MjRUMTQyNjU4Wg==
+      amz-sdk-invocation-id:
+      - REDACTED
+      amz-sdk-request:
+      - REDACTED
+    method: GET
+    uri: https://test-bucket.s3.us-east-2.amazonaws.com/test/test
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '2048'
+      Content-Range:
+      - bytes 0-2047/2048
+      Content-Type:
+      - binary/octet-stream
+      Date:
+      - Fri, 24 Jun 2022 14:26:59 GMT
+      ETag:
+      - '"c188d940b7d60523364501c6a1b55e57"'
+      Last-Modified:
+      - Fri, 24 Jun 2022 14:25:28 GMT
+      Server:
+      - AmazonS3
+      x-amz-expiration:
+      - expiry-date="Mon, 25 Jul 2022 00:00:00 GMT", rule-id="Delete all files"
+      x-amz-id-2:
+      - REDACTED
+      x-amz-request-id:
+      - REDACTED
+      x-amz-server-side-encryption:
+      - AES256
+    status:
+      code: 206
+      message: Partial Content
+version: 1

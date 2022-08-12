@@ -1,0 +1,51 @@
+interactions:
+- request:
+    body: null
+    headers:
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS4yMy43IFB5dGhvbi8zLjEwLjUgTGludXgvNS4xOC42LWFyY2gxLTEgQm90b2NvcmUv
+        MS4yNi43
+      X-Amz-Content-SHA256:
+      - !!binary |
+        ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3
+        ODUyYjg1NQ==
+      X-Amz-Date:
+      - !!binary |
+        MjAyMjA2MjhUMTI1NzUxWg==
+      amz-sdk-invocation-id:
+      - REDACTED
+      amz-sdk-request:
+      - REDACTED
+    method: HEAD
+    uri: https://test-bucket.s3.us-east-2.amazonaws.com/test/test.pdf
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '5301'
+      Content-Type:
+      - application/pdf
+      Date:
+      - Tue, 28 Jun 2022 12:57:53 GMT
+      ETag:
+      - '"fd866ec96c1a91364b52f54b11827a1c"'
+      Last-Modified:
+      - Tue, 31 May 2022 13:11:02 GMT
+      Server:
+      - AmazonS3
+      x-amz-expiration:
+      - expiry-date="Fri, 01 Jul 2022 00:00:00 GMT", rule-id="Delete all files"
+      x-amz-id-2:
+      - REDACTED
+      x-amz-request-id:
+      - REDACTED
+      x-amz-server-side-encryption:
+      - AES256
+    status:
+      code: 200
+      message: OK
+version: 1

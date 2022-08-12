@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-east-2",
+      "eventTime": "2022-05-31T13:11:01.440Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "REDACTED"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "REDACTED"
+      },
+      "responseElements": {
+        "x-amz-request-id": "REDACTED",
+        "x-amz-id-2": "REDACTED"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "test_put",
+        "bucket": {
+          "name": "test-bucket",
+          "ownerIdentity": {
+            "principalId": "REDACTED"
+          },
+          "arn": "arn:aws:s3:::test-bucket"
+        },
+        "object": {
+          "key": "test/test.pdf",
+          "size": 5301,
+          "eTag": "fd866ec96c1a91364b52f54b11827a1c",
+          "sequencer": "00629613E560FC381D"
+        }
+      }
+    }
+  ]
+}

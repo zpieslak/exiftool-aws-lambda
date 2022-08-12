@@ -1,0 +1,27 @@
+---
+version: '3.8'
+
+services:
+  layer:
+    build:
+      context: .
+      dockerfile: Dockerfile.layer
+    container_name: exiftool_layer_container
+    env_file:
+      - .docker.env
+    image: exiftool_layer
+    ports:
+      - 8080:8080
+    volumes:
+      - ./layer:$LAYER_PATH
+  test:
+    build:
+      args:
+        BIN_PATH: $BIN_PATH
+        LAYER_PATH: $LAYER_PATH
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: exiftool_test_container
+    image: exiftool_test
+    ports:
+      - 8080:8080

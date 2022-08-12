@@ -1,0 +1,11 @@
+FROM public.ecr.aws/lambda/python:3.9
+
+# Install build tools
+RUN yum install -y vim make gcc gzip tar zip
+
+COPY entrypoint.layer.sh ./
+
+# Fix permissions
+RUN chmod +x entrypoint.layer.sh
+
+ENTRYPOINT ["./entrypoint.layer.sh"]

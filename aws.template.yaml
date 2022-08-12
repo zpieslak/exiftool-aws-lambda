@@ -1,0 +1,54 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  ExiftoolBucketName:
+    Type: String
+    Default: test-bucket
+Resources:
+  ExiftoolLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: exiftool.app.handler
+      Runtime: python3.9
+      Timeout: 300
+      MemorySize: 256
+      CodeUri: ./app
+      Layers:
+        - !Ref ExiftoolLayerVersion
+      Environment:
+        Variables:
+          EXIFTOOL_BIN: /opt/bin/exiftool
+      Policies:
+        - Statement:
+            - Sid: S3PolicyGetObject
+              Effect: Allow
+              Action:
+                - s3:GetObject
+              Resource: !Sub arn:aws:s3:::${ExiftoolBucketName}/*
+            - Sid: S3PolicyListbucket
+              Effect: Allow
+              Action:
+                - s3:ListBucket
+              Resource: !Sub arn:aws:s3:::${ExiftoolBucketName}/
+      Events:
+        s3ObjectCreated:
+          Type: S3
+          Properties:
+            Bucket: !Ref ExiftoolBucket
+            Events: s3:ObjectCreated:*
+  ExiftoolLayerVersion:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: exiftool
+      ContentUri: layer/exiftool.zip
+  ExiftoolBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref ExiftoolBucketName
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
