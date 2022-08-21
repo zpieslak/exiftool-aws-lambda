@@ -1,9 +1,9 @@
 ## Exiftool Lambda
 
 The code provides a fully working example of AWS Lambda using [exiftool](https://exiftool.org/).
-It is written in python and intended to work under limited disk and RAM resources. The core functionality simply downloads chunks of a file and fills stdin for exiftool. As soon as exiftool get all information it exits. That way even large files can be analyzed.
+It is written in python and intended to work under limited disk and RAM resources. The core functionality simply downloads chunks of a file and fills stdin for `exiftool`. As soon as exiftool get all information, it exits. That way, even large files can be analyzed.
 
-The AWS diagrom is presented below:
+The AWS diagram is presented below:
 
 
     +---------------+                            +-------------------------+
@@ -17,11 +17,11 @@ The AWS diagrom is presented below:
 
 Exiftool lambda can be useful for obtaining metadata of uploaded file. I.e. user uploads a file to S3, it is then passed to our Lambda and extracted metadata is returned in JSON format (which can be later passed to another Lambda for further processing).
 
-Since AWS Lambda is limited environment additional Exiftool layer needs to be created and attached. In order to generate exiftool layer a command needs to be run:
+Since AWS Lambda is limited environment, additional layer needs to be created and attached. In order to generate layer (with `exiftool` executable and its dependencies) a command needs to be run:
 
     docker compose --env-file .docker.env -f docker-compose.yml up --build --force-recreate layer
 
-Please note that all environment variables are stored in `.docker.env` in order to adjust perl or exiftool version it needs to be changed there. After docker image is build it copies `exiftool.zip` to layer directory.
+Please note that all environment variables are stored in `.docker.env` in order to adjust `perl` or `exiftool` version it needs to be changed there. After docker image is build it copies `exiftool.zip` to layer directory.
 
 Once we have layer generated, we can run tests. This also happens via docker to mimic the AWS Lambda environment.
 
